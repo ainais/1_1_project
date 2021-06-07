@@ -1,0 +1,49 @@
+<!-- 
+    2. list 만들기
+        2-1) 적절한 태그를 사용하며 의미있는 강조는 <bold> 대신 <strong> 태그 사용을 권장한다.
+        2-2) 구매내역은 밑줄 표시, 마우스 오버 시 파란색 하이퍼링크 처리한다.
+        2-3) 글씨크기(제목:<h2> 부제:<h3> 본문내용 : <h4>로 지정한다.)
+        2-4) 글씨 크기는 (제목 : <h4>로 지정한다.)
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>2. Create List</title>
+        <style>
+            hr{
+                color : black;
+                height : 10px;
+                background-color: black;
+            }
+            .A:hover{
+                color: blue;
+                font-size : 30px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>Programming</h2>
+        <h3>Programming</h3>
+        <h4>The job of developing programs</h4>
+        <ol>
+            <li>
+                This means making the program. And this program is usally operated in the couputer field.
+            </li>
+        <hr>
+        </ol>
+
+        <h4>The guide of using webtoon</h4>
+        <ul>
+            <li>
+                When you possess the cookies, you could use <strong>the webtoon service</strong>.
+            </li>
+            <li>
+                The check of buying cookies can be checked in <a href="http://www.naver.com" class="A">the purchase list</a>.
+            </li>
+            <li>
+                Only a person who signed service agreements can buy the cookeies.
+            </li>
+        </ul>
+    </body>
+</html>
