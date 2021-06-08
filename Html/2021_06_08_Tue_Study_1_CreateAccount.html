@@ -1,0 +1,113 @@
+<!-- Create New Account with Form in the HTML -->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Create New Account</title>
+        <style>
+            form{
+                width:600px;
+                text-align: center;
+                
+            }
+            table{
+                width: 600px;;
+            }
+            td{
+                text-align: center;
+            }
+            span{
+                font-weight: bold;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <h3>Practicing Form</h3>
+        <h4>Create New Account</h4>
+        <hr>
+        <form>
+            <fieldset>
+                <legend><span>Create Account</span></legend>
+                <table border = "2px">
+                    <tr>
+                        <td><label for="ID">ID</label></td>
+                        <td colspan="2"><input type="text" name="ID"></td>                
+                    </tr>
+                    <tr>
+                        <td><label for="PWD">Password</label></td>
+                        <td colspan="2"><input type="password name="PWD"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><label for="Birth Date"><span>Birth Date</span></label></td>
+                    </tr>
+                    <tr>
+                        <td><select id="Year">
+                            <option value="1">2001</option>
+                            <option value="2">2002</option>
+                            <option value="3">2003</option>
+                            <option value="4">2004</option></select>Year
+                            </td>
+                        <td><select id="month">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option></select>Month
+                            </td>
+                        <td><select id="day">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option></select>Day
+                            </td>    
+                    </tr>
+                    <tr>
+                        <td colspan="3"><label for="Gender"><span>Gender</span></label></td>
+                    </tr>
+                    <tr>
+                        <td>Man<input type="radio" value="1" name="Gender" checked></td>
+                        <td>&nbsp;</td>
+                        <td>Woman<input type="radio" value="1" name="Gender"></td>
+                    </tr>
+                    <tr>
+                        <td><labe for="email">E-Mail</labe></td>
+                        <td colspan="2"><input type="email" placeholder="Input with @"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><label for="phoneNumber"><span>PhoneNumber</span></label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><input type="number" name="phoneNumber" placeholder="Only Numbers"></td>
+                        <td><input type="button" value="Send Verification Code"></td>
+                    </tr>
+                    <tr>
+                        <td>Verification</td>
+                        <td colspan="2"><input type="text" placeholder="Input Verification Code From Your Phone"></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><label for="Hobby"><span>Hobby</span></label></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <input type="radio" value="1">Exercise
+                            <input type="radio" value="1">Cooking
+                            <input type="radio" value="1">Travel
+                            <input type="radio" value="1">Game
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3"><span>Greeting</span></td>
+                    </tr>
+                    <tr>
+                        <td colspan="3">
+                            <textarea cols="50" rows="20"></textarea>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="2"><button type="submit">Create New Account</button></td>
+                        <td><button type="reset">Reset This Form</button></td>
+                    </tr>
+                </table>
+            </fieldset>
+        </form>
+    </body>
+</html>
