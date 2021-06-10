@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>여행 사이트 만들기</title>
+        <style>
+            *{
+                box-sizing:border-box;
+            }
+
+            .menu{
+                margin-top : 20px;
+                float:left;
+                width:20%;
+            }
+            a:hover{
+                color:violet;
+                font-size:120%;
+            }
+            .menuitem{
+                padding:10px;
+                margin-top:10px;
+                border-bottom:1px solid blue;
+                padding : 0 20px;
+            }
+            .main{
+                float:left;
+                width:30%;
+                padding : 0 20px;
+                overflow : hidden;
+            }
+            .right{
+                float : left;
+                width : 20%;
+                padding : 10px 20px;
+                margin-top:10px;
+            }
+            img{
+                width: 200px;
+                height: 200px;
+            }
+            footer{
+                clear:both;
+            }
+            a{
+                text-decoration: none;
+            }
+            .right2{
+                float:left;
+                width:30%;
+                padding : 10px 20px;
+                margin-top : 50px;
+            }
+        </style>
+    </head>
+    <body style="background-color:rgb(245, 245, 145);">
+        <div style="background-color : skyblue; padding:15;">
+        <h1 style="text-align: center;">걸어서 여행 사이트(국내여행)</h1>
+        </div>
+        <div>
+            <div class="menu">
+                <div class="menuitem"><a href="tourwalking.html">도보 여행</a></div>
+                <div class="menuitem"><a href="tourtrain.html">기차 여행</a></div>
+                <div class="menuitem"><a href="tourlocal.html">국내 여행</a></div>
+                <div class="menuitem"><a href="tourforeign.html">해외 여행</a></div>
+            </div>
+        </div>
+        <div class="main">
+            <h2>국내 여행</h2>
+            <p>걸어서 여행하기 좋은 곳을 소개하오니 참고하여 주시기 바랍니다.</p>
+            <img src="data:image/jpeg;base64,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" alt="도보 여행 사진">
+        </div>
+        <div class="right">
+            <h2>장소</h2>
+            <p>제주도</p>
+            <h2>가격</h2>
+            <p>10만원 / 하루</p>
+        </div>
+        <div class="right2" style="text-align: center;">
+            <img src="https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F265E914C515A8B972C">
+            <br>&lt;제주도 유채꽃&gt;
+        </div>
+        <footer>
+            <div style="background-color: rgb(194, 194, 194); text-align: center; padding: 10px; margin-top:10px; font-size:15px;">
+                <h2>Contact Us</h2>
+                걸어서 여행사 대표 : 이정성, HP : 010-8667-8148<br>
+                &copy; made by LJS<br>
+                이 사이트는 좋은 목적으로 만들었습니다.
+            </div>
+        </footer>
+
+    </body>
+</html>
