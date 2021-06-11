@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="erp.FxController">
+   <children>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnInfoEmp" mnemonicParsing="false" onAction="#infoEmployeeOpen" text="사원 정보 조회">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnVac" mnemonicParsing="false" onAction="#vactionOpen" text="사원 휴가 조회">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnDepartment" mnemonicParsing="false" onAction="#departmentOpen" text="사원 부서 조회">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children></HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnProject" mnemonicParsing="false" onAction="#projectOpen" text="사원 프로젝트 조회">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children></HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnRegInfoEmp" mnemonicParsing="false" onAction="#infoEmployeeRegister" text="사원 정보 등록">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnRegVac" mnemonicParsing="false" onAction="#VactionRegister" text="사원 휴가 등록">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="10.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnRegDep" mnemonicParsing="false" onAction="#departmentRegister" text="사원 부서 등록">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children></HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnRegProject" mnemonicParsing="false" onAction="#projectRegister" text="사원 프로젝트 등록">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children></HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnDeleteInfo" mnemonicParsing="false" onAction="#deleteInfo" text="사원 정보 삭제" textFill="RED">
+               <font>
+                  <Font size="24.0" />
+               </font>
+            </Button>
+         </children></HBox>
+      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+         <children>
+            <Button fx:id="btnRegister" mnemonicParsing="false" onAction="#register" text="신입 등록">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+            <Button fx:id="btnCancel" mnemonicParsing="false" onAction="#cancel" text="닫기">
+               <font>
+                  <Font size="24.0" />
+               </font>
+               <HBox.margin>
+                  <Insets right="30.0" />
+               </HBox.margin>
+            </Button>
+         </children>
+      </HBox>
+      <Line endX="100.0" startX="-100.0" />
+   </children>
+</VBox>

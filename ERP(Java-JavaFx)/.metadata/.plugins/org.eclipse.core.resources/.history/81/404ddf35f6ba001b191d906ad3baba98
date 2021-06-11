@@ -1,0 +1,76 @@
+package erp;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.*;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class FxController {
+
+    @FXML
+    private Button btnRegister;
+    
+    @FXML
+    private Button btnFinalRegister;
+    
+    @FXML
+    private Button btnReset;
+    
+    @FXML
+    private Button btnCancel;
+    
+    @FXML
+    private TextField txtEmployeeID;
+    
+    @FXML
+    private TextField txtName;
+    
+    @FXML
+    private TextField txtDepartment;
+    
+    @FXML
+    private DatePicker txtEnteringDate;
+    
+    @FXML
+    private TextField txtRemainVacation;
+    
+    @FXML
+    void register(ActionEvent event) {
+		btnRegister.getScene().getWindow().hide();
+		Stage primaryStage = new Stage();
+		try {
+			Parent root = FXMLLoader.load(getClass().getResource("Register.fxml"));
+			Scene scene = new Scene(root);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("신규 등록");
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+    }
+    
+    @FXML
+    void finalRegister(ActionEvent event) {
+//EmployeeInsert의 객체 생성 후 DB에 추가하는 함수 설계
+    }
+    
+    @FXML
+    void reset(ActionEvent event) {
+    	txtEmployeeID.setText("");
+    }
+    
+    @FXML
+    void cancel(ActionEvent event) {
+    	Platform.exit();
+    }
+}

@@ -1,0 +1,8 @@
+package erp;
+
+public class Snippet {
+	public static void main(String[] args) {
+		Register
+	}
+}
+

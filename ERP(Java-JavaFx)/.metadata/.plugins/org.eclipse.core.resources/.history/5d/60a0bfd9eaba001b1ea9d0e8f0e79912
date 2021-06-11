@@ -1,0 +1,13 @@
+package erp;
+
+import java.util.Scanner;
+
+public class Control {
+	public static void main(String[] args) {
+		
+		EmployeeInsert e = new EmployeeInsert();
+		
+		e.tableInsert(2105220002, "홍길동", "웹디자인부서", "2021-05-22", 17);
+		e.tableSelect();
+	}
+}
