@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        table{
+            text-align: center;
+            width: 400px;
+            height : 500px;
+            background-color: greenyellow;
+        }
+        input[type=button]{
+            font-size: 30px;
+            font-weight: bold;
+            background-color: honeydew;
+        }
+        input[type=text]{
+            width:80%;
+            height:30px;
+            font-size: 30px;
+            font-weight: bold;
+            text-align: center;
+            background-color: yellow;
+        }
+        input[type=text]:focus{
+            background-color: rgb(214, 235, 214);
+        }
+    </style>
+</head>
+<body>
+    <h3>간단 계산기</h3>
+    <hr>
+    <form name="form" >
+        <table border="1px">
+            <tr>
+                <td colspan="4"><input type="text" name="output"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="7" onclick="document.form.output.value+='7'"></td>
+                <td><input type="button" value="8" onclick="document.form.output.value+='8'"></td>
+                <td><input type="button" value="9" onclick="document.form.output.value+='9'"></td>
+                <td><input type="button" value="/" onclick="document.form.output.value+='/'"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="4" onclick="document.form.output.value+='4'"></td>
+                <td><input type="button" value="5" onclick="document.form.output.value+='5'"></td>
+                <td><input type="button" value="6" onclick="document.form.output.value+='6'"></td>
+                <td><input type="button" value="*" onclick="document.form.output.value+='*'"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="1" onclick="document.form.output.value+='1'"></td>
+                <td><input type="button" value="2" onclick="document.form.output.value+='2'"></td>
+                <td><input type="button" value="3" onclick="document.form.output.value+='3'"></td>
+                <td><input type="button" value="-" onclick="document.form.output.value+='-'"></td>
+            </tr>
+            <tr>
+                <td><input type="button" value="C" onclick="document.form.output.value=''"></td>
+                <td><input type="button" value="0" onclick="document.form.output.value+='0'"></td>
+                <td><input type="button" value="=" onclick="document.form.output.value=
+                    eval(document.form.output.value)"></td>
+                <td><input type="button" value="+" onclick="document.form.output.value+='+'"></td>
+            </tr>
+        </script>
+        </table>
+    </form>
+    <script>
+        document.forms.output.value
+    </script>
+</body>
+</html>
