@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scanner Practice</title>
+        <style>
+            table{
+                width: 300px;
+                height: 300px;
+            }
+            th,td{
+                font-weight: bold;
+                text-align: center;
+            }
+            th{
+                font-weight: bold;
+                font-size: 20px;
+            }
+        </style>
+        <script>
+            function create_table(){
+                var row = prompt("row value");
+                var col = prompt("column value")
+                var number;
+
+                document.write("<table border='1'>");
+                for (i = 0; i < row; i++){
+                    document.write("<tr>");
+                        for (j =0; j < col; j++){
+                            document.write("<td>");
+                                number=prompt("Input your number");
+                                document.write(number);
+                            document.write("</td>");
+                        }
+                    document.write("</tr>");
+                }
+                document.write("</table>");
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            create_table()
+        </script>
+    </body>
+</html>

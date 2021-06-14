@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Scanner Practice</title>
+        <style>
+            table{
+                width: 500px;
+                height: 500px;
+            }
+            th,td{
+                text-align: center;
+            }
+            th{
+                font-weight: bold;
+                font-size: 20px;
+            }
+        </style>
+        <script>
+            function create_table(){
+                    var number = prompt("첫번째 번호를 입력해주세요.");
+                     document.write("<table border ='1'>");
+                     document.write("<th>번호1</th>" );
+                     document.write("<th>번호2</th>" );
+                     document.write("<th>번호3</th>" );
+
+                     document.write("<tr>");
+                     document.write("<td>"+number+"</td>");
+                     number = prompt("두번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     number = prompt("세번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     document.write("</tr>");
+
+                     document.write("<tr>");
+                     number = prompt("네번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     number = prompt("다섯번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     number = prompt("여섯번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     document.write("</tr>");
+                    
+                     document.write("<tr>");
+                     number = prompt("일곱번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     number = prompt("여덟번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     number = prompt("아홉번째 번호를 입력해주세요.");
+                     document.write("<td>"+number+"</td>");
+                     document.write("</tr>");
+                     document.write("</table>")
+                return number
+            }
+        </script>
+    </head>
+    <body>
+        <script>
+            create_table()
+        </script>
+    </body>
+</html>
