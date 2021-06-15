@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 헤더에 대한 설정입니다. */
+        #header{
+            position: absolute;
+            top: 20px;
+            margin-top: 20px;
+            margin-left: 20px;
+        }
+        #headerLogo{
+            text-decoration: none;
+            font-size : 40px;
+        }
+        #headerLogo:visited{
+            color:black;
+        }
+        #logo{
+            width: 50px;
+            height: 50px;
+        }
+        #headerImg{
+            width: 50px;
+            height: 50px;
+        }
+        #headerMenu{
+            font-weight: bold;
+            font-size: 15px;
+        }
+        /* 메인 바디에 대한 설정입니다 */
+        #mainBody{
+            position:absolute;
+            top:100px;
+            width:100%;
+            background-color: rgb(0, 0, 0);
+            text-align: center;
+        }
+        #mainImg{
+            width:70%;
+        }
+        #mainImgRight{
+            position:absolute;
+            top:300px;
+            left: 90%;
+            width: 5%;
+        }
+        #mainImgLeft{
+            position:absolute;
+            top:300px;
+            left: 5%;
+            width:5%
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            var mainImgRight = document.getElementById("mainImgRight");
+            var mainImgLeft = document.getElementById("mainImgLeft");
+            var mainImg = document.getElementById("mainImg");
+            mainImgRight.onclick = function(){
+                mainImg.src = "무료GIF/우주2.gif";
+            }
+            mainImgLeft.onclick = function(){
+                mainImg.src = "무료GIF/우주1.gif";
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="header">
+        <a href="index.html" id="headerLogo"><img src="무료이미지/우주1(small).jpg" id="logo">&nbsp;&nbsp;&nbsp;KOSMOS</a>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴1</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴2</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴3</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴4</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴5</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴6</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘2.jpg" alt="그림" id="headerImg"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘1.jpg" alt="그림" id="headerImg"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘3.jpg" alt="그림" id="headerImg"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘4.jpg" alt="그림" id="headerImg"></span>
+    </div>
+    <div id="mainBody">
+        <img src="무료GIF/우주1.gif" loop=infinite id="mainImg">
+    </div>
+    <div id="mainDirect">
+        <img src="무료이미지/화살표1.jpg" id="mainImgRight">
+        <img src="무료이미지/화살표2.jpg" id="mainImgLeft">
+    </div>
+</body>
+</html>
