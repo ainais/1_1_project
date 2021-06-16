@@ -1,78 +1,126 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <script src="https://kit.fontawesome.com/38c02b23e9.js" crossorigin="anonymous"></script>
+    <title>Project</title>
     <style>
         /* 헤더에 대한 설정입니다. */
-        #header{
+        #header {
             position: absolute;
             top: 20px;
             margin-top: 20px;
             margin-left: 20px;
+            color: black;
         }
-        #headerLogo{
+
+        #headerLogo {
             text-decoration: none;
-            font-size : 40px;
+            font-size: 40px;
         }
-        #headerLogo:visited{
-            color:black;
+
+        #headerLogo:visited {
+            color: black;
         }
-        #logo{
+
+        #logo {
             width: 50px;
             height: 50px;
         }
-        #headerImg{
+
+        #headerImg {
             width: 50px;
             height: 50px;
         }
-        #headerMenu{
+
+        #headerMenu {
             font-weight: bold;
             font-size: 15px;
         }
+
         /* 메인 바디에 대한 설정입니다 */
-        #mainBody{
-            position:absolute;
-            top:100px;
-            width:100%;
-            background-color: rgb(0, 0, 0);
+        #mainBody {
+            position: absolute;
+            top: 100px;
+            width: 100%;
+
             text-align: center;
         }
-        #mainImg{
-            width:70%;
+
+        #mainImg {
+            width: 40%;
         }
-        #mainImgRight{
-            position:absolute;
-            top:300px;
-            left: 90%;
+
+        #mainImgRight {
+            position: absolute;
+            top: 200px;
+            left: 85%;
             width: 5%;
         }
-        #mainImgLeft{
-            position:absolute;
-            top:300px;
-            left: 5%;
-            width:5%
+
+        #mainImgLeft {
+            position: absolute;
+            top: 200px;
+            left: 15%;
+            width: 5%
+        }
+
+        #bodyHr {
+            border: 1px solid black;
+            position: absolute;
+            top: 350px;
+            width: 100%;
+
+        }
+
+        /* 메인 바디2에 대한 설정입니다 */
+        #mainBody2 {
+            position: absolute;
+            top: 360px;
+            width: 100%;
+            text-align: center;
+        }
+
+        #filterResult {
+            background-color: rgb(193, 236, 193);
+            width: 100%;
+            height: 200px;
+        }
+
+        th, td {
+            text-align: center;
+            width: 120px;
+            height: 30px;
+        }
+        #recCom1,#recCom2,#recCom3{
+            background-color: rgb(227, 245, 125);
+            float :left;
+            margin-left:20px;
+            width: 30%;
+            height: 200px;
         }
     </style>
     <script>
-        window.onload = function(){
+        window.onload = function () {
             var mainImgRight = document.getElementById("mainImgRight");
             var mainImgLeft = document.getElementById("mainImgLeft");
             var mainImg = document.getElementById("mainImg");
-            mainImgRight.onclick = function(){
+            mainImgRight.onclick = function () {
                 mainImg.src = "무료GIF/우주2.gif";
             }
-            mainImgLeft.onclick = function(){
+            mainImgLeft.onclick = function () {
                 mainImg.src = "무료GIF/우주1.gif";
             }
         }
     </script>
 </head>
+
 <body>
     <div id="header">
-        <a href="index.html" id="headerLogo"><img src="무료이미지/우주1(small).jpg" id="logo">&nbsp;&nbsp;&nbsp;KOSMOS</a>
+        <a href="index.html" id="headerLogo"><i class="fas fa-home" id="logo"></i>&nbsp;&nbsp;&nbsp;KOSMOS</a>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴1</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴2</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴3</span>
@@ -80,17 +128,100 @@
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴5</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerMenu">메뉴6</span>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘2.jpg" alt="그림" id="headerImg"></span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘1.jpg" alt="그림" id="headerImg"></span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘3.jpg" alt="그림" id="headerImg"></span>
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><img src="무료이미지/헤더아이콘4.jpg" alt="그림" id="headerImg"></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><i class="fas fa-search" id="headerImg"></i></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><i class="fas fa-user" id="headerImg"></i></span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="headerImg"><i class="fas fa-align-justify" id="headerImg"></i></span>
     </div>
     <div id="mainBody">
         <img src="무료GIF/우주1.gif" loop=infinite id="mainImg">
     </div>
     <div id="mainDirect">
-        <img src="무료이미지/화살표1.jpg" id="mainImgRight">
-        <img src="무료이미지/화살표2.jpg" id="mainImgLeft">
+        <i class="fas fa-angle-right" id="mainImgRight" style="width: 50px; height: 50px"></i>
+        <i class="fas fa-angle-left" id="mainImgLeft"></i>
     </div>
+    <hr id="bodyHr">
+    <div id="mainBody2">
+        <h1>기업의 정보를 자신의 마음대로 커스터마이징하기!</h1>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="Menu">필터1</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="filterMenu">필터2</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="filterMenu">필터3</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="filterMenu">필터4</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="filterMenu">필터5</span>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span id="filterMenu">필터6</span>
+        <br><br>
+        <div id="filterResult">
+            <form>
+                <table border="1px solid" style="margin-left:10px">
+                    <tr>
+                        <th>순번</th>
+                        <th>기업명</th>
+                        <th>사원수</th>
+                        <th>주요채용직무</th>
+                        <th>직무역량</th>
+                        <th>기업 평점</th>
+                        <th>워라밸</th>
+                        <th>합격 확률</th>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>쿠팡</td>
+                        <td>10,000</td>
+                        <td>IT개발</td>
+                        <td>JSP</td>
+                        <td>5.0</td>
+                        <td>4</td>
+                        <td>88</td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>배민</td>
+                        <td>1,000</td>
+                        <td>IT개발</td>
+                        <td>Java</td>
+                        <td>3.9</td>
+                        <td>3</td>
+                        <td>57</td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>현대</td>
+                        <td>200,000</td>
+                        <td>BigData</td>
+                        <td>Oracle</td>
+                        <td>2.1</td>
+                        <td>1</td>
+                        <td>47</td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>카카오</td>
+                        <td>20,000</td>
+                        <td>AI</td>
+                        <td>Python</td>
+                        <td>4.9</td>
+                        <td>1</td>
+                        <td>77</td>
+                    </tr>
+                </table>
+                <br>
+                <input type="button" value="To Excel">
+                <input type="reset" value="Reset">
+            </form>
+        </div>
+        <br><br>
+        <hr>
+        <h1>혹시 이런 기업 찾으셨나요?</h1>
+        <div id="recCom1">
+            기업1
+        </div>
+        <div id="recCom1">
+            기업2
+        </div>
+        <div id="recCom1">
+            기업3
+        </div>
+    </div>
+
 </body>
+
 </html>
