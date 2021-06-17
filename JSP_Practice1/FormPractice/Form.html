@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Form</title>
+</head>
+<body>
+<h1>Form 출력 예제</h1>
+<hr>
+<Form action="FormData.jsp" method="post">
+이름&nbsp;:&nbsp;<input type="text" name="name"><br>
+나이&nbsp;:&nbsp;<input type="text" name="age"><br>
+성별<br>
+<input type="radio" value="남" name="gender" checked>남&nbsp;&nbsp;
+<input type="radio" value="여" name="gender">여
+<br>
+취미:
+<select id="hobby" name="hobby" required>
+<option value="복싱" selected>복싱</option>
+<option value="농구">농구</option>
+<option value="테니스">테니스</option>
+<br>
+<input type="submit" value="제출">
+<input type="reset" value="초기화">
+</Form>
+</body>
+</html>
