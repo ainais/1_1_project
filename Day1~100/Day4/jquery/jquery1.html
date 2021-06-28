@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	
+</style>
+<meta charset="UTF-8">
+<script  src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script>
+	$(function(){
+		var cnt = 0;
+		// 문제 1. '전송' 버튼을 눌렀을 때 Name, Dept, 눌렸을 때 테이블을 아래 추가하기
+		$('#btn').click(function(){
+			var name = $('#name').val();
+			var dept = $('#dept').val();
+			var job = $('#job').val();
+			cnt++;
+			
+			if (cnt==1){
+				$('#addTable>tbody').append("<tr><td>"+"Name"+"</td><td>"+"Dept"+"</td><td>"+"Job"+"</td></tr>");
+				$('#addTable>tbody').append("<tr><td>"+name+"</td><td>"+dept+"</td><td>"+job+"</td></tr>");
+			}
+			else{
+				$('#addTable>tbody').append("<tr><td>"+name+"</td><td>"+dept+"</td><td>"+job+"</td></tr>");
+			}
+
+		})
+	})
+</script>
+<title>jquery 1</title>
+</head>
+<body>
+	<h3>jquery 1</h3>
+	<hr>
+		<form>
+			<table>
+				<tr>
+					<th>이름&nbsp;&nbsp;&nbsp;</th>
+					<td><input type="text" id='name' name="name"></td>
+				</tr>
+				<tr>
+					<th>부서&nbsp;&nbsp;&nbsp;</th>
+					<td><input type="text" id='dept' name="dept"></td>
+				</tr>
+				<tr>
+					<th>직책&nbsp;&nbsp;&nbsp;</th>
+					<td><input type="text" id='job' name="job"></td>
+				</tr>
+				<tr>
+					<td colspan = "2" style="text-align:center"><input type="button" value="전송" id='btn'></td>
+				</tr>
+			</table>
+		</form>
+	<hr>
+	<table border='2' id="addTable">
+		<tbody>
+		</tbody>
+	</table>
+</body>
+</html>
