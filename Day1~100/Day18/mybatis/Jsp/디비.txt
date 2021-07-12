@@ -1,0 +1,10 @@
+
+테이블명 : comment_tab => Using MariaDB
+
+글번호( comment_no INT(10) )
+사용자명( user_id VARCHAR(30) )
+내용( comment_content VARCHAR(500) )
+날짜( reg_date DATE )
+
+
+VO, DTO => 테이블의 데이터를 연동하는 클래스
