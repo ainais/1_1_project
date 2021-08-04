@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customer">
+
+	<select id="selectUser" parameterType="customerVO" resultType="customerVO">
+		SELECT * FROM customer
+		<where>
+				userID = #{userID} AND userPW = #{userPW}
+		</where>
+	</select>
+	
+	<select id="ajaxLoginCheck" parameterType="customerVO" resultType="customerVO">
+		SELECT * FROM customer
+		<where>
+				userID = #{userID} 
+		</where>
+	</select>
+	
+	<!-- ======================================= -->
+	<!-- 로그인 로그 데이터 시작 -->
+	<insert id="logInsert" parameterType="logVO">
+	INSERT INTO userLog(USERID,SESSIONID,LOGCREATESESSIONDATE,LOGVISITPAGE) VALUES(#{userID},sessionID_seq.nextval,#{logCreateSessionDate},#{logVisitPage})
+	</insert>
+	<!-- 로그인 로그 데이터 종료 -->
+	<!-- ======================================= -->
+		
+	<!-- ======================================= -->
+	<!-- myPage 데이터 시작 -->
+	<select id="selectCustomerList" resultType="customerVO">
+		SELECT * FROM customer WHERE userGrade = '고객'
+	</select>
+	<select id="selectBestBoardList" resultType="boardVO">
+		SELECT* FROM (SELECT ROW_NUMBER() OVER(ORDER BY to_number(board.boardlike) DESC) as row_num, board.* FROM board WHERE boardType='REVIEW') WHERE row_num <![CDATA[<=]]> 12
+	</select>
+	<select id="selectRecentBoardList" resultType="productVO">
+		SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY productREGDATE desc) as row_num,product.* FROM product) WHERE row_num <![CDATA[<=]]> 6
+	</select>
+	<select id="selectTodayCustomerList" resultType="customerVO">
+		SELECT * FROM customer WHERE userGrade = '고객'
+	</select>
+	<select id="selectAllLog" resultType="logVO">
+		SELECT * FROM userLog
+	</select>
+	
+	<!-- myPage 데이터 종료 -->
+	<!-- ======================================= -->
+
+	
+	<insert id="insertCustomer" parameterType="customerVO">
+		INSERT INTO customer (userID, userPW, userName, userEmail, userTel, userAddr, userGender, userBirthday)
+		VALUES (#{userID},#{userPW},#{userName},#{userEmail},#{userTel}, #{userAddr}, #{userGender}, #{userBirthday} )
+	</insert>
+	<!-- 목록 -->
+	<select id="getCustomerList" parameterType="customerVO" resultType="customerVO">
+     SELECT userID,userPW,userName,
+     userEmail, userTel, userAddr, userGender, userBirthday
+     FROM customer
+     ORDER BY userID DESC 
+	</select>
+	
+	<select id="customerDetail" parameterType="customerVO" resultType="customerVO">
+     SELECT * FROM customer WHERE userID = #{userID}
+	</select>
+	
+		<!-- 수정 -->
+	<update id="updateCustomer" parameterType="customerVO" >
+              UPDATE 
+                  customer 
+              SET
+              userName = #{userName},
+              userPW = #{userPW},
+              userAddr = #{userAddr},
+              userTel = #{userTel},
+              userEmail = #{userEmail}
+              WHERE
+               userID = #{userID}
+	</update>
+	<!-- 회원 탈퇴 -->
+	<delete id="deleteCustomer2" parameterType="customerVO">
+	 DELETE FROM customer
+	 WHERE userID = #{userID}
+	   AND userPW = #{userPW}
+	</delete>
+	
+	<!-- 마이페이지 -> 내 정보 관리 -> 회원정보수정 -->
+	<update id="modifyCustomer" parameterType="customerVO">
+		UPDATE customer SET
+		userPW = #{userPW},
+		userBirthday = #{userBirthday},
+		userGender = #{userGender},
+		userEmail = #{userEmail},
+		userTel = #{userTel},
+		userAddr = #{userAddr}
+		WHERE userID = #{userID}
+	</update>
+	
+	<!-- 마이페이지 -> 내 정보 관리 -> 회원탈퇴 -->
+	<delete id="deleteCustomer" parameterType="customerVO">
+		DELETE customer
+		WHERE userID = #{userID}
+	</delete>
+	
+	<!-- 마이페이지 -> 구독정보보기 -> 구독취소 -->
+	<update id="cancleSUB" parameterType="customerVO">
+		UPDATE customer SET
+		subGrade = null,
+		subStartDate = null,
+		subRemainDate = null
+		WHERE userID = #{userID}
+	</update>
+		<!-- 마이페이지 -> 내 정보 관리 -> 회원정보수정 -> 비밀번호 일치 여부 확인 -->
+	<select id="checkPW" parameterType="customerVO" resultType="int">
+		SELECT COUNT(*) FROM customer WHERE userID = #{userID} AND userPW = #{userPW}
+	</select>
+</mapper>

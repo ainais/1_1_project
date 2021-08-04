@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<typeAliases>
+		<typeAlias type="com.java.domain.BoardVO" alias="boardVO" />
+		<typeAlias type="com.java.domain.CouponVO" alias="couponVO" />
+		<typeAlias type="com.java.domain.CustomerVO" alias="customerVO" />
+		<typeAlias type="com.java.domain.LogVO" alias="logVO" />
+		<typeAlias type="com.java.domain.ProductVO" alias="productVO" />
+		<typeAlias type="com.java.domain.PurchaseVO" alias="purchaseVO" />
+		<typeAlias type="com.java.domain.StringVO" alias="stringVO" />
+		<typeAlias type="com.java.domain.ShopBasketVO" alias="shopBasketVO" />
+		<typeAlias type="com.java.domain.PagingVO" alias="pagingVO" />
+	</typeAliases>
+</configuration>

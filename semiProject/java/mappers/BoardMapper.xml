@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="board">
+
+   <!-- 게시판 입력 -->   
+   <insert id="insertBoard" parameterType="boardVO">
+      Insert INTO board 
+      (
+      boardID,boardTitle,userID,
+      boardContent,boardSecret,
+      boardRegdate,boardCnt,boardType,boardIP
+      )
+       VALUES(
+       board_boardid_seq.nextval,#{boardTitle},
+       #{userID},#{boardContent},
+       #{boardSecret},
+       sysdate,'0','Board',#{boardIP}
+       )
+   </insert>
+   <!-- 자유게시판 총 열 수 가져오기 -->
+   <select id="totalRow" resultType="int">
+   	SELECT count(*) FROM board WHERE boardType = 'Board'
+   </select>
+      <select id="totalRowUser" parameterType="String" resultType="int">
+   	SELECT count(*) FROM board WHERE userID = #{loginID}
+   </select>
+   
+   <!-- 자유게시판 목록 전체 불러오기 -->
+   <select id="selectAllBoard" parameterType="pagingVO" resultType="boardVO">
+   			SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board.boardRegDate DESC) as row_num, board.* FROM board WHERE boardType = 'Board' )  
+   			WHERE row_num <![CDATA[<=]]> ${page}*10	AND row_num <![CDATA[>=]]> (${page}-1)*10+1
+   </select>
+   
+   <!-- 자유게시판 목록 전체 불러오기 USER -->
+   <select id="selectAllBoardUser" parameterType="pagingVO" resultType="boardVO">
+   			SELECT * FROM (SELECT ROW_NUMBER() OVER(ORDER BY board.boardRegDate DESC) as row_num, board.* FROM board WHERE userID = #{userID})  
+   			WHERE row_num <![CDATA[<=]]> ${page}*10	AND row_num <![CDATA[>=]]> (${page}-1)*10+1
+   </select>
+   
+   <!-- 자유 게시판 리스트 -->
+   <select id="getBoardList" resultType="boardVO">
+      SELECT * FROM board WHERE boardType = 'Board' ORDER BY boardRegdate DESC 
+   </select>
+   
+   <!-- 글 상세보기 -->
+   <select id="getBoard" parameterType="String" resultType="boardVO">
+      SELECT * FROM board 
+      <where>
+         <if test="boardID != null">
+            boardID = #{boardID}
+         </if>
+      </where> 
+   </select>
+   
+   <!-- 수정하기 -->
+   <update id="updateBoard" parameterType="boardVO" >
+      UPDATE board SET boardTitle=#{boardTitle}, boardContent=#{boardContent}
+      WHERE boardID=#{boardID}
+   </update>
+
+   <!-- 삭제하기 -->
+   <delete id="deleteBoard" parameterType="boardVO">
+      DELETE board WHERE boardID=#{boardID}
+   </delete>
+   
+   	<update id="likeThisReview" parameterType="String">
+		UPDATE board SET
+		boardLike = boardLike+1
+		WHERE boardID = #{boardID}
+	</update>
+	
+   <!-- 조회수 증가  -->
+   <update id="updateCount" parameterType="String">
+      UPDATE board SET boardCnt = boardCnt+1
+      WHERE boardID=#{boardID}
+   </update>
+   
+	
+	<!-- 후기 쓰기 -->
+	<insert id="writeReview" parameterType="boardVO">
+		INSERT INTO board(boardID, userID, boardContent, boardRegdate, boardLike, boardType, boardIP, boardSecret, productName
+		<if test='boardFname != null'>
+		, boardFname, boardFsize
+		</if>		
+		)
+		VALUES(board_boardid_seq.nextval, #{userID}, #{boardContent}, SYSDATE, '0', 'REVIEW', #{boardIP}, '공개', #{productName}
+		<if test='boardFname != null'>
+		, #{boardFname}, #{boardFsize}
+		</if>
+		)
+	</insert>
+
+
+	<!-- 후기 목록 가져오기 -->
+	<select id="readReviewList" parameterType="boardVO" resultType="boardVO">
+		SELECT * FROM board WHERE boardType='REVIEW' ORDER BY boardRegdate DESC
+	</select>
+
+
+	<!-- 특정 후기 읽기 (안함..) -->
+	<select id="readReview" parameterType="boardVO" resultType="boardVO">
+		SELECT * FROM board 
+		<if test='boardRegdate != null'>
+		WHERE boardRegdate = #{boardRegdate}
+		</if>
+	</select>
+	
+	
+	<!-- 특정 후기 삭제 -->
+	<delete id="deleteReview" parameterType="boardVO">
+		DELETE board WHERE boardID = #{boardID}
+	</delete>
+	
+	
+	<!-- 특정 후기 수정 -->
+	<update id="modifyReview" parameterType="boardVO">
+		UPDATE board SET boardContent = #{boardContent}
+		WHERE boardID = ${boardID}
+	</update>
+</mapper>

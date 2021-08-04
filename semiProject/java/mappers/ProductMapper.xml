@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="product">
+	<select id="selectProduct" parameterType="productVO" resultType="productVO">
+		SELECT * FROM product
+		<where>
+			<if test="productID != null">
+				productID = #{productID}
+			</if>
+		</where>
+	</select>
+	<select id="selectGradeProduct" parameterType="productVO" resultType="productVO">
+		SELECT * FROM product WHERE productGrade = #{productGrade}
+	</select>
+	
+	<select id="selectNormalProduct" parameterType="productVO" resultType="productVO">
+		SELECT * FROM product
+	</select>
+	
+	<select id="selectProductOrder" parameterType="stringVO" resultType="productVO">
+		SELECT * FROM product
+		
+
+		<where>
+			<if test="brand != null">
+				productBrand = #{brand}			
+			</if>
+		</where> 
+
+		<if test="str != null">
+			ORDER BY ${str}
+		</if>
+	</select>
+	
+	<select id="selectCompanyOrder" parameterType="stringVO" resultType="productVO">
+		SELECT * FROM product
+
+		<where>
+			<if test="companyName != null">
+				productCompanyName = #{companyName}			
+			</if>
+		</where> 
+
+	</select>
+	
+	<select id="selectBrandWhere" parameterType="stringVO" resultType="productVO">
+	SELECT * FROM product
+	<where>
+		<if test="brand != null">
+		productBrand = #{brand}
+		</if>
+	</where>
+
+	</select>
+	
+	<insert id="addProduct" parameterType="productVO">
+		INSERT INTO product (PRODUCTNAME,PRODUCTID,PRODUCTBRAND,PRODUCTREGDATE,PRODUCTGRADE,PRODUCTPRICE,
+				PRODUCTENGINE,PRODUCTSTOCK,PRODUCTCONTENT,PRODUCTIMAGESRC,PRODUCTCOLORCNT,PRODUCTMILEAGE,
+				PRODUCTCOUPON,PRODUCTDELIVERY,PRODUCTCNT,PRODUCTSALECNT,PRODUCTSALERATE,PRODUCTCHAR,
+				PRODUCTSEATCAPACITY,PRODUCTVIEWPOINT,PRODUCTCOMPANYNAME)
+				
+		VALUES (#{productName},productID_INCREMENT.nextval,#{productBrand},sysdate,#{productGrade},#{productPrice},
+				#{productEngine},#{productStock},#{productContent},#{productImageSrc},#{productColorCnt},#{productMileage},
+				#{productCoupon},#{productDelivery},#{productCnt},#{productSaleCnt},#{productSaleRate},#{productChar},
+				#{productSeatCapacity},#{productViewPoint},#{productCompanyName})
+	</insert>
+	
+	<update id="updateProduct" parameterType="productVO">
+		UPDATE product SET 
+		productName = #{productName},
+		productBrand =#{productBrand},
+		productPrice =#{productPrice},
+		productGrade =#{productGrade},
+		productEngine =#{productEngine},
+		productMileage =#{productMileage},
+		productStock = #{productStock}
+		WHERE productID = #{productID}
+	</update>
+</mapper>
