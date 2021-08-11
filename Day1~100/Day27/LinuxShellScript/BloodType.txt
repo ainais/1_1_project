@@ -1,0 +1,25 @@
+#! /bin/sh
+
+echo "혈액형을 입력해주세요>"
+read bloodType
+
+if [ $bloodType = A ] || [ $bloodType = a ]
+then
+echo "당신의 혈액형은 A 형 입니다."
+elif [ $bloodType = B ] || [ $bloodType = b ]
+then
+echo "당신의 혈액형은 B 형 입니다."
+elif [ $bloodType = O ] || [ $bloodType = o ]
+then
+echo "당신의 혈액형은 O 형 입니다."
+elif [ $bloodType = AB ] || [ $bloodType = ab ] || [ $bloodType = aB ] || [ $bloodType = Ab ]
+then
+echo "당신의 혈액형은 AB 형 입니다."
+else
+echo "입력된 혈액형이 아닙니다"
+sh test.sh
+fi
+
+echo "프로그램을 종료합니다."
+
+exit 0
